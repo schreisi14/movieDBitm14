@@ -1,0 +1,28 @@
+body
+{
+	background-color: #DDD;
+	font-family: Arial, sans serif;
+	color: #222;
+}
+
+div#header
+{
+	background-color: #222;
+	color: #DDD;
+	width: 100%;
+	margin-top: 0px;
+	position: fixed;
+}
+div#topcontent
+{
+	margin-top: 0px;
+}
+div#logo
+{
+	margin-top: 0px;
+	color: #DDD;
+	font-style: normal;
+}
+div#content
+{	
+}
