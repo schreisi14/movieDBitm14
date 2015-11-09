@@ -1,7 +1,7 @@
 body
-	{
-		font-size: 11pt;
-	}
+{
+	font-size: 11pt;
+}
 div#header
 {
 	height: 60px;
@@ -79,6 +79,7 @@ div#content
 	position: absolute;
 	left: 50%;
 	margin-top: 80px;
+	padding-bottom: 30px;
 	margin-left: -500px;
 	margin-right: auto;
 	right: auto;

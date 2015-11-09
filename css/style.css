@@ -12,17 +12,21 @@ div#header
 	width: 100%;
 	margin-top: 0px;
 	position: fixed;
+	z-index: 11;
 }
 div#topcontent
 {
 	margin-top: 0px;
+	z-index: 12;
 }
 div#logo
 {
 	margin-top: 0px;
 	color: #DDD;
 	font-style: normal;
+	z-index: 12;
 }
 div#content
 {	
+	z-index: 10;
 }
