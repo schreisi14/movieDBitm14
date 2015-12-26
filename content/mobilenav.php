@@ -38,18 +38,8 @@
 			</div>
 		</div>
 		<div id="content">
-			<h1>
-				MovieDB
-			</h1>
-			<?php 
-				$handle = fopen ("../README.md", "r");
-				while (!feof($handle)) {
-    				$buffer = fgets($handle);
-    				echo $buffer;
-    				echo "<br />";
-				}
-				fclose ($handle);
-			?>
+		<?php include 'nav.php';?>
+
 		</div>
 	</body>
 </html>

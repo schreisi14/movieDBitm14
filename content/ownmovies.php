@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>
-			MovieDB
+			MovieDB | Film ausborgen.
 		</title>
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../css/reset.css" />
@@ -38,17 +38,35 @@
 			</div>
 		</div>
 		<div id="content">
-			<h1>
-				MovieDB
-			</h1>
-			<?php 
-				$handle = fopen ("../README.md", "r");
-				while (!feof($handle)) {
-    				$buffer = fgets($handle);
-    				echo $buffer;
-    				echo "<br />";
+			<?php include("../business.php");
+				// init Movie Model from Business Logic
+				$movie = new Movie();
+				// now load all Movies
+				$data = $movie->getAllMovies();
+
+				// prepare HTML Table
+				function getHTMLTable($tabledata) {
+				  $html = '<h1>Eigene Filme:</h1>';
+				  $html .= '<table id="moviestable">';
+				  $html .= '<thead><tr>';
+				  $html .= '<th>Filmtitel</th>';
+				  $html .= '<th>Jahr</th>';
+				  $html .= '<th>Sprache</th>';
+				  $html .= '</tr></thead>';
+
+				  foreach($tabledata as $movie) {
+				    $html .= '<tbody><tr>';
+				    $html .= '<td>' . $movie['name'] . '</td>';
+						$html .= '<td>' . $movie['year'] . '</td>';
+						$html .= '<td>' . $movie['language'] . '</td>';
+				    $html .= '</tr></tbody>';
+				  }
+
+				  $html .= '</table>';
+
+				  return $html;
 				}
-				fclose ($handle);
+				echo getHTMLTable($data);
 			?>
 		</div>
 	</body>

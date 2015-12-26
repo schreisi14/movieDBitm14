@@ -16,9 +16,13 @@ $data = $movie->getAllMovies();
 
 // prepare HTML Table
 function getHTMLTable($tabledata) {
-  $html = '<table id="Moviestable">';
+  $html = '<br />';
+  $html .= '<h1>Liste der bereits erstellten Filme:</h1>';
+  $html .= '<table id="moviestable">';
   $html .= '<thead><tr>';
-  $html .= '<th>Moviename</th>';
+  $html .= '<th>Filmtitel</th>';
+  $html .= '<th>Jahr</th>';
+  $html .= '<th>Sprache</th>';
   $html .= '</tr></thead>';
 
   foreach($tabledata as $movie) {
@@ -36,21 +40,45 @@ function getHTMLTable($tabledata) {
 
 // now we can clearly output the requested data
 ?>
-<html>
- <head>
-   <title>Movies</title>
- </head>
- <body>
+
 
  <form method="post" >
-   new Movie:<br>
-	 Name:<input type="text" name="moviename" />
-	 Year:<input type="text" name="year" />
-	 Lang:<input type="text" name="language" />
-	<input type="submit" value="Submit"/>
+   <h1>Neuen Film erstellen:</h1>
+   <table id="newmovie">
+   		<tr>
+   			<td>
+   				Name:
+   			</td>
+   			<td>
+   				<input type="text" name="moviename" placeholder="Mein Film Titel" />
+   			</td>
+   		</tr>
+   		<tr>
+   			<td>
+   				Erscheinungsjahr:
+   			</td>
+   			<td>
+   				<input type="text" name="year" placeholder="YYYY" />
+   			</td>
+   		</tr>
+   		<tr>
+   			<td>
+   				Sprache:
+   			</td>
+   			<td>
+   				<input type="text" name="language" placeholder="Deutsch" />
+   			</td>
+   		</tr>
+   		<tr>
+   			<td>
+   			</td>
+   			<td>
+   				<input type="submit" value="Submit"/>
+   			</td>
+   		</tr>
+   </table>
  </form>
 
  <?php echo getHTMLTable($data); ?><br />
 
- </body>
-</html>
+

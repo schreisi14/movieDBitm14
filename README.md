@@ -12,6 +12,7 @@
 # TODO
 - create a Logik between movie - medium - owner - person
 - provide a better UI for inserting
-- Include movie.php
 - Implement create owners
-- Implement
+- Implement .
+- Implement ..
+- Implement ...

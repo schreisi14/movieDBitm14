@@ -1,16 +1,16 @@
 <ul>
-	<a href="search">
+	<a href="borrow.php">
 		<li>
 			ausborgen
 		</li>
 	</a>
-	<a href="new">
+	<a href="create.php">
 		<li>
 			zur Verfügung stellen
 		
 		</li>
 	</a>
-	<a href="owned">
+	<a href="ownmovies.php">
 		<li>
 			eigene Filme
 		</li>

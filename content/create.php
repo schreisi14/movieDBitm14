@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>
-			MovieDB
+			MovieDB | zur Verfügung stellen.
 		</title>
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../css/reset.css" />
@@ -33,23 +33,13 @@
 				<div id="login">
 					<h1>
 						<?php include 'login.php'; ?>
+
 					</h1>
 				</div>
 			</div>
 		</div>
 		<div id="content">
-			<h1>
-				MovieDB
-			</h1>
-			<?php 
-				$handle = fopen ("../README.md", "r");
-				while (!feof($handle)) {
-    				$buffer = fgets($handle);
-    				echo $buffer;
-    				echo "<br />";
-				}
-				fclose ($handle);
-			?>
+			<?php include '../movie.php'; ?>
 		</div>
 	</body>
 </html>
