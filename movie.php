@@ -6,12 +6,12 @@ include("business.php");
 // init Movie Model from Business Logic
 $movie = new Movie();
 
-// insert new city if post data exists
+// insert new Movie if post data exists
 if(isset($_POST["moviename"]) && $_POST["moviename"]){
 	$movie->createMovie($_POST["moviename"],$_POST["year"],$_POST["language"]);
 }
 
-// now load all cities
+// now load all Movies
 $data = $movie->getAllMovies();
 
 // prepare HTML Table

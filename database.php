@@ -3,7 +3,7 @@
 // it could be possible that the connection will be loaded at another DAO
 include_once "db_connection.php";
 
-// Database Layer for City
+// Database Layer for Movie
 class MovieDAO {
 	private $connection = null;
 
@@ -18,7 +18,7 @@ class MovieDAO {
 	}
 
 	/*
-	 * Create a new City with cityname
+	 * Create a new Movie with name
 	 */
 	public function create($moviename, $year, $language) {
 		$stmt = $this->connection->prepare( "INSERT INTO movie (name, year, language) VALUES (?,?,?);");
@@ -33,7 +33,7 @@ class MovieDAO {
 	}
 
 	/*
-	 * Get all informations of a City by its name
+	 * Get all informations of a Movies by its name
 	 */
 	public function read($moviename) {
 		$stmt = $this->connection->prepare( "SELECT * FROM movie WHERE name = ?;" );
@@ -52,7 +52,7 @@ class MovieDAO {
 	}
 
 	/*
-	 * Get all Cities in the Database
+	 * Get all Movies in the Database
 	 */
 	public function readAll() {
 		$select = "SELECT * FROM movie;";
@@ -74,7 +74,8 @@ class MovieDAO {
 	}
 
 	/*
-	 * Update the informations of a City, identified by its name.
+	 * Update the informations of a Movie, identified by its name.
+	 * TODO!
 	 */
 	public function update($moviename, $moviename_new) {
 		$stmt = $this->connection->prepare ( "UPDATE movie SET name=? WHERE name = ?;" );
