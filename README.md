@@ -1,15 +1,17 @@
 # movieDBitm14
-# Team
-# Helmuth Weithaler
-# Stefan Reip
-# Simon Schrei
-# 
-# Project for DBAnw - ITM14
+- Project for DBAnw - ITM14
+- ALPHA
+- Website for sharing Movies
 
-#  ___  ___           _     ____________         _ _             __    ___ 
-#  |  \/  |          (_)    |  _  \ ___ \       (_) |           /  |  /   |
-#  | .  . | _____   ___  ___| | | | |_/ /        _| |_ _ __ ___ `| | / /| |
-#  | |\/| |/ _ \ \ / / |/ _ \ | | | ___ \       | | __| '_ ` _ \ | |/ /_| |
-#  | |  | | (_) \ V /| |  __/ |/ /| |_/ /       | | |_| | | | | || |\___  |
-#  \_|  |_/\___/ \_/ |_|\___|___/ \____/        |_|\__|_| |_| |_\___/   |_/
-                                                                        
+# Team
+* Simon Schrei
+* Stefan Reip
+* Helmuth Weithaler
+
+
+# TODO
+- create a Logik between movie - medium - owner - person
+- provide a better UI for inserting
+- Include movie.php
+- Implement create owners
+- Implement
