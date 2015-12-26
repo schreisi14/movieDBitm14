@@ -38,7 +38,7 @@ function getHTMLTable($tabledata) {
 ?>
 <html>
  <head>
-   <title>St�dte</title>
+   <title>Movies</title>
  </head>
  <body>
 
