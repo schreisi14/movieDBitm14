@@ -19,5 +19,30 @@ class Movie {
 		$data = $this->movieDAO->create($moviename, $year, $language);
 		return $data;
 	}
+}
 
+class Person{
+	private $personDAO = null;
+
+	public function __construct() {
+		$this->personDAO = new PersonDAO();
+	}
+	public function getAllPersons() {
+		$data = $this->personDAO->readAll();
+	}
+	public function createPerson($firstname, $lastname, $telephon, $email){
+		$data = $this->personDAO->create($firstname, $lastname, $telephon, $email);
+		return $data;
+	}
+
+class Owner{
+	private $ownfilmDAO = null;
+
+	public function __construct(){
+		$this->ownfilmDAO = new OwnFilmDAO();
+	}
+	public function getAllOwnfilms() {
+		$data = $this->ownfilmDAO->readAll();
+	}
+}
 }
