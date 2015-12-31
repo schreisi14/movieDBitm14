@@ -277,4 +277,17 @@ class OwnFilmDAO {
 
 	/*
 	 * Create a new Movieowner
+	 * TODO! Find out how get the ids to store them
+	 */
+	public function create($forname, $lastname, $moviename, $medium) {
+		$stmt = $this->connection->prepare( "INSERT INTO movieowner (id_person, id_movie, id_medium) VALUES (?,?,?);");
+		$stmt->bind_param( 'sis', $forname, $lastname, $telephone, $email);
+		if ($stmt->execute()) {
+			echo "Insert complete";
+			return 1;
+		} else {
+			echo "Person-Create-ERROR: " . $insert . "<br>" . mysqli_error ( $this->connection );
+			return - 1;
+		}
+	}
 }
