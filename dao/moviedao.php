@@ -1,8 +1,8 @@
 <?php
-namespace dao;
+//namespace dao;
 // include database connection only once,
 // it could be possible that the connection will be loaded at another DAO
-include_once "db_connection.php";
+include_once '../db_connection.php';
 //####################################################################################################
 // Database Layer for Movie
 
@@ -44,7 +44,7 @@ class MovieDAO {
 		if ($stmt->execute ()) {
 			$stmt->bind_result( $moviename);
 			while ( $stmt->fetch() ) {
-				$row['cityname'] = $moviename;
+				$row['name'] = $moviename;
 			}
 			return $row;
 		} else {

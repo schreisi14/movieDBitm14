@@ -1,9 +1,9 @@
 <?php
 // Business Layer
-namespace mdb;
+//namespace mdb;
 // Movie Model
 
-include '../dao/moviedao';
+include '../dao/moviedao.php';
 
 class Movie {
 	private $movieDAO = null;

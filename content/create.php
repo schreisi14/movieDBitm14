@@ -39,7 +39,7 @@
 			</div>
 		</div>
 		<div id="content">
-			<?php include '../movie.php'; ?>
+			<?php include '../createmovie.php'; ?>
 		</div>
 	</body>
 </html>

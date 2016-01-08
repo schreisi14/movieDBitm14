@@ -7,8 +7,8 @@ include("model/owner.php");
 $ownmovie = new OwnFilmDAO();
 
 // insert new Movie if post data exists
-if(isset($_POST["forname"]) && $_POST["forname"]){
-	$ownmovie->create($_POST["forname"],$_POST["lastname"],$_POST["movie"],$_POST["medium"]);
+if(isset($_POST["firstname"]) && $_POST["lastname"]){
+	$ownmovie->create($_POST["fistname"],$_POST["lastname"],$_POST["movie"],$_POST["medium"]);
 }
 
 // now load all existing Owner and thier films with mediums
@@ -52,7 +52,7 @@ function getHTMLTable($tabledata) {
    				Vorame:
    			</td>
    			<td>
-   				<input type="text" name="forname" placeholder="Vorname" />
+   				<input type="text" name="firstname" placeholder="Vorname" />
    			</td>
    		</tr>
    		<tr>
