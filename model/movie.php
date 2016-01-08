@@ -1,6 +1,5 @@
 <?php
 // Business Layer
-//namespace mdb;
 // Movie Model
 
 include '../dao/moviedao.php';

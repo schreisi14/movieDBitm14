@@ -1,5 +1,4 @@
 <?php
-//namespace dao;
 // include database connection only once,
 // it could be possible that the connection will be loaded at another DAO
 require_once '../db_connection.php';

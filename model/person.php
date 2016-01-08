@@ -1,6 +1,5 @@
 <?php
 // Business Layer
-//namespace mdb;
 
 require '../dao/persondao.php';
 // Person model
