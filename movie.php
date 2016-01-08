@@ -66,7 +66,7 @@ function getHTMLTable($tabledata) {
    				Sprache:
    			</td>
    			<td>
-   				<input type="text" name="language" placeholder="Deutsch" />
+   				<input type="text" name="language" placeholder="de" />
    			</td>
    		</tr>
    		<tr>
@@ -80,5 +80,3 @@ function getHTMLTable($tabledata) {
  </form>
 
  <?php echo getHTMLTable($data); ?><br />
-
-

@@ -34,6 +34,7 @@ class Person{
 		$data = $this->personDAO->create($firstname, $lastname, $telephon, $email);
 		return $data;
 	}
+}
 
 class Owner{
 	private $ownfilmDAO = null;
@@ -44,5 +45,4 @@ class Owner{
 	public function getAllOwnfilms() {
 		$data = $this->ownfilmDAO->readAll();
 	}
-}
 }

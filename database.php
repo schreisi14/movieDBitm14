@@ -128,16 +128,16 @@ class PersonDAO {
 	}
 
 	/*
-	 * Get all informations of a Person by forname
+	 * Get all informations of a Person by firstname
 	 */
-	public function read($forname) {
-		$stmt = $this->connection->prepare( "SELECT * FROM person WHERE forname = ?;" );
-		$stmt->bind_param( 's', $forname );
+	public function readByFirstName($firstname) {
+		$stmt = $this->connection->prepare( "SELECT * FROM person WHERE firstname = ?;" );
+		$stmt->bind_param( 's', $firstname );
 
 		if ($stmt->execute ()) {
-			$stmt->bind_result( $forname);
+			$stmt->bind_result( $firstname);
 			while ( $stmt->fetch() ) {
-				$row['forname'] = $forname;
+				$row['firstname'] = $firstname;
 			}
 			return $row;
 		} else {
@@ -149,7 +149,7 @@ class PersonDAO {
 	/*
 	 * Get all informations of a Person by lastname
 	 */
-	public function read($lastname) {
+	public function readByLastName($lastname) {
 		$stmt = $this->connection->prepare( "SELECT * FROM person WHERE lastname = ?;" );
 		$stmt->bind_param( 's', $lastname );
 
@@ -168,9 +168,9 @@ class PersonDAO {
 	/*
 	 * Create a new Person
 	 */
-	public function create($forname, $lastname, $telephone, $email) {
-		$stmt = $this->connection->prepare( "INSERT INTO person (forname, lastname, telephone, email) VALUES (?,?,?,?);");
-		$stmt->bind_param( 'sis', $forname, $lastname, $telephone, $email);
+	public function create($firstname, $lastname, $telephone, $email) {
+		$stmt = $this->connection->prepare( "INSERT INTO person (firstname, lastname, telephone, email) VALUES (?,?,?,?);");
+		$stmt->bind_param( 'sis', $firstname, $lastname, $telephone, $email);
 		if ($stmt->execute()) {
 			echo "Insert complete";
 			return 1;
@@ -219,16 +219,16 @@ class OwnFilmDAO {
 	}
 
 	/*
-	 * Get all films of a movieowner by forname
+	 * Get all films of a movieowner by firstname
 	 */
-	public function read($forname) {
-		$stmt = $this->connection->prepare( "SELECT * FROM movieowner WHERE id_person = SELECT id FROM person WHERE forname = ?;" );
-		$stmt->bind_param( 's', $forname );
+	public function readByFirstName($firstname) {
+		$stmt = $this->connection->prepare( "SELECT * FROM movieowner WHERE id_person = SELECT id FROM person WHERE firstname = ?;" );
+		$stmt->bind_param( 's', $firstname );
 
 		if ($stmt->execute ()) {
-			$stmt->bind_result( $forname);
+			$stmt->bind_result( $firstname);
 			while ( $stmt->fetch() ) {
-				$row['forname'] = $forname;
+				$row['firstname'] = $firstname;
 			}
 			return $row;
 		} else {
@@ -240,7 +240,7 @@ class OwnFilmDAO {
 	/*
 	 * Get all films of a movieowner by lastname
 	 */
-	public function read($lastname) {
+	public function readByLastName($lastname) {
 		$stmt = $this->connection->prepare( "SELECT * FROM movieowner WHERE id_person = SELECT id FROM person WHERE lastname = ?;" );
 		$stmt->bind_param( 's', $lastname );
 
@@ -259,7 +259,7 @@ class OwnFilmDAO {
 	/*
 	 * Get all persons of movieowner by film
 	 */
-	public function read($moviename) {
+	public function readByMovieName($moviename) {
 		$stmt = $this->connection->prepare( "SELECT * FROM movieowner WHERE id_movie = SELECT id FROM movie WHERE name = ?;" );
 		$stmt->bind_param( 's', $moviename );
 
@@ -279,9 +279,9 @@ class OwnFilmDAO {
 	 * Create a new Movieowner
 	 * TODO! Find out how get the ids to store them
 	 */
-	public function create($forname, $lastname, $moviename, $medium) {
+	public function create($firstname, $lastname, $moviename, $medium) {
 		$stmt = $this->connection->prepare( "INSERT INTO movieowner (id_person, id_movie, id_medium) VALUES (?,?,?);");
-		$stmt->bind_param( 'sis', $forname, $lastname, $telephone, $email);
+		$stmt->bind_param( 'sis', $firstname, $lastname, $telephone, $email);
 		if ($stmt->execute()) {
 			echo "Insert complete";
 			return 1;
