@@ -1,7 +1,7 @@
 <?php
 // we now in presentation layer
 // we will include business layer to load business logic
-include("business.php");
+include("model/person.php");
 
 // init Movie Model from Business Logic
 $person = new Person();
@@ -90,5 +90,3 @@ function getHTMLTable($tabledata) {
  </form>
 
  <?php echo getHTMLTable($data); ?><br />
-
-
