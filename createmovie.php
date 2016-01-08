@@ -2,7 +2,7 @@
 
 // we now in presentation layer
 // we will include business layer to load business logic
-require 'model/movie.php' ;
+include 'model/movie.php' ;
 
 // init Movie Model from Business Logic
 $movie = new Movie();
@@ -28,7 +28,7 @@ function getHTMLTable($tabledata) {
 
   foreach($tabledata as $movie) {
     $html .= '<tbody><tr>';
-    $html .= '<td>' . $movie['name'] . '</td>';
+    $html .= '<td>' . $movie['title'] . '</td>';
 		$html .= '<td>' . $movie['year'] . '</td>';
 		$html .= '<td>' . $movie['language'] . '</td>';
     $html .= '</tr></tbody>';

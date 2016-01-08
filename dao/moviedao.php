@@ -22,7 +22,7 @@ class MovieDAO {
 	 * Create a new Movie with name
 	 */
 	public function create($moviename, $year, $language) {
-		$stmt = $this->connection->prepare( "INSERT INTO movie (name, year, language) VALUES (?,?,?);");
+		$stmt = $this->connection->prepare( "INSERT INTO movie (title, year, language) VALUES (?,?,?);");
 		$stmt->bind_param( 'sis', $moviename, $year, $language);
 		if ($stmt->execute()) {
 			echo "Insert complete";
@@ -37,7 +37,7 @@ class MovieDAO {
 	 * Get all informations of a Movies by its name
 	 */
 	public function read($moviename) {
-		$stmt = $this->connection->prepare( "SELECT * FROM movie WHERE name = ?;" );
+		$stmt = $this->connection->prepare( "SELECT * FROM movie WHERE title = ?;" );
 		$stmt->bind_param( 's', $moviename );
 
 		if ($stmt->execute ()) {
@@ -79,7 +79,7 @@ class MovieDAO {
 	 * TODO!
 	 */
 	public function update($moviename, $moviename_new) {
-		$stmt = $this->connection->prepare ( "UPDATE movie SET name=? WHERE name = ?;" );
+		$stmt = $this->connection->prepare ( "UPDATE movie SET title=? WHERE name = ?;" );
 		$stmt->bind_param ( 'ss', $moviename_new, $moviename);
 
 		if ($stmt->execute ()) {

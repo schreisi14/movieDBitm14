@@ -1,7 +1,7 @@
 <?php
 // Business Layer
 
-require '../dao/persondao.php';
+include '../dao/persondao.php';
 // Person model
 class Person{
 	private $personDAO = null;

@@ -1,7 +1,7 @@
 <?php
 // Business Layer
 
-require '../dao/ownfilmdao.php';
+include '../dao/ownfilmdao.php';
 
 //Owner Model
 class Owner{
@@ -12,5 +12,6 @@ class Owner{
 	}
 	public function getAllOwnfilms() {
 		$data = $this->ownfilmDAO->readAll();
+		return $data;
 	}
 }

@@ -1,9 +1,9 @@
 <?php
 
-//TODO EVERTHING!
+//TODO customize to loged in user ...
 // include database connection only once,
 // it could be possible that the connection will be loaded at another DAO
-require_once '../db_connection.php';
+include_once '../db_connection.php';
 
 //####################################################################################################
 //Dabase Layer for Owner
@@ -24,7 +24,10 @@ class OwnFilmDAO {
 	 * Get all Persons in the Database
 	 */
 	public function readAll() {
-		$select = "SELECT * FROM movieowner;";
+		$select = "SELECT person.firstname, person.lastname, movie.title, movie.year, movie.language, medium.name FROM movieowner
+INNER JOIN person ON person.id = movieowner.id_person
+INNER JOIN movie ON movie.id = movieowner.id_movie
+INNER JOIN medium ON medium.id = movieowner.id_medium;";
 		if ($this->connection == null) {
 			echo "Connection not initialized!";
 		} else if ($result = mysqli_query ( $this->connection, $select )) {
@@ -45,7 +48,7 @@ class OwnFilmDAO {
 	/*
 	 * Get all films of a movieowner by firstname
 	 */
-	public function readByFirstName($firstname) {
+	/*public function readByPersonId($firstname) {
 		$stmt = $this->connection->prepare( "SELECT * FROM movieowner WHERE id_person = SELECT id FROM person WHERE firstname = ?;" );
 		$stmt->bind_param( 's', $firstname );
 
@@ -60,58 +63,5 @@ class OwnFilmDAO {
 			return - 1;
 		}
 	}
-
-	/*
-	 * Get all films of a movieowner by lastname
-	 */
-	public function readByLastName($lastname) {
-		$stmt = $this->connection->prepare( "SELECT * FROM movieowner WHERE id_person = SELECT id FROM person WHERE lastname = ?;" );
-		$stmt->bind_param( 's', $lastname );
-
-		if ($stmt->execute ()) {
-			$stmt->bind_result( $lastname);
-			while ( $stmt->fetch() ) {
-				$row['lastname'] = $lastname;
-			}
-			return $row;
-		} else {
-			echo "0 results";
-			return - 1;
-		}
-	}
-
-	/*
-	 * Get all persons of movieowner by film
-	 */
-	public function readByMovieName($moviename) {
-		$stmt = $this->connection->prepare( "SELECT * FROM movieowner WHERE id_movie = SELECT id FROM movie WHERE name = ?;" );
-		$stmt->bind_param( 's', $moviename );
-
-		if ($stmt->execute ()) {
-			$stmt->bind_result( $lastname);
-			while ( $stmt->fetch() ) {
-				$row['moviename'] = $moviename;
-			}
-			return $row;
-		} else {
-			echo "0 results";
-			return - 1;
-		}
-	}
-
-	/*
-	 * Create a new Movieowner
-	 * TODO! Find out how get the ids to store them
-	 */
-	public function create($firstname, $lastname, $moviename, $medium) {
-		$stmt = $this->connection->prepare( "INSERT INTO movieowner (id_person, id_movie, id_medium) VALUES (?,?,?);");
-		$stmt->bind_param( 'sis', $firstname, $lastname, $telephone, $email);
-		if ($stmt->execute()) {
-			echo "Insert complete";
-			return 1;
-		} else {
-			echo "Person-Create-ERROR: " . $insert . "<br>" . mysqli_error ( $this->connection );
-			return - 1;
-		}
-	}
+*/
 }
