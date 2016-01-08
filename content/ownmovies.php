@@ -38,35 +38,9 @@
 			</div>
 		</div>
 		<div id="content">
-			<?php include("../business.php");
-				// init Movie Model from Business Logic
-				$movie = new Movie();
-				// now load all Movies
-				$data = $movie->getAllMovies();
-
-				// prepare HTML Table
-				function getHTMLTable($tabledata) {
-				  $html = '<h1>Eigene Filme:</h1>';
-				  $html .= '<table id="moviestable">';
-				  $html .= '<thead><tr>';
-				  $html .= '<th>Filmtitel</th>';
-				  $html .= '<th>Jahr</th>';
-				  $html .= '<th>Sprache</th>';
-				  $html .= '</tr></thead>';
-
-				  foreach($tabledata as $movie) {
-				    $html .= '<tbody><tr>';
-				    $html .= '<td>' . $movie['name'] . '</td>';
-						$html .= '<td>' . $movie['year'] . '</td>';
-						$html .= '<td>' . $movie['language'] . '</td>';
-				    $html .= '</tr></tbody>';
-				  }
-
-				  $html .= '</table>';
-
-				  return $html;
-				}
-				echo getHTMLTable($data);
+			<?php
+			echo "MUSS GEMACHT WERDEN -> ownmovie.php";
+			include '../ownmovie.php';
 			?>
 		</div>
 	</body>

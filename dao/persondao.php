@@ -1,8 +1,8 @@
 <?php
-namespace dao;
+//namespace dao;
 // include database connection only once,
 // it could be possible that the connection will be loaded at another DAO
-include_once "db_connection.php";
+require_once '../db_connection.php';
 //####################################################################################################
 //Database Layer for Persons
 class PersonDAO {
@@ -17,6 +17,22 @@ class PersonDAO {
 			die( 'ERROR while connecting' );
 		}
 	}
+
+	/*
+	* Create a new Person
+	*/
+	public function create($firstname, $lastname, $telephone, $email) {
+		$stmt = $this->connection->prepare( "INSERT INTO person (firstname, lastname, telephone, email) VALUES (?,?,?,?);");
+		$stmt->bind_param( 'ssss', $firstname, $lastname, $telephone, $email);
+		if ($stmt->execute()) {
+			echo "Insert complete";
+			return 1;
+		} else {
+			echo "Person-Create-ERROR: " . $insert . "<br>" . mysqli_error ( $this->connection );
+			return - 1;
+		}
+	}
+
 	/*
 	 * Get all Persons in the Database
 	 */
@@ -77,18 +93,4 @@ class PersonDAO {
 		}
 	}
 
-	/*
-	 * Create a new Person
-	 */
-	public function create($firstname, $lastname, $telephone, $email) {
-		$stmt = $this->connection->prepare( "INSERT INTO person (firstname, lastname, telephone, email) VALUES (?,?,?,?);");
-		$stmt->bind_param( 'sis', $firstname, $lastname, $telephone, $email);
-		if ($stmt->execute()) {
-			echo "Insert complete";
-			return 1;
-		} else {
-			echo "Person-Create-ERROR: " . $insert . "<br>" . mysqli_error ( $this->connection );
-			return - 1;
-		}
-	}
 }

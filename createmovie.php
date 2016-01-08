@@ -2,7 +2,7 @@
 
 // we now in presentation layer
 // we will include business layer to load business logic
-include 'model/movie.php' ;
+require 'model/movie.php' ;
 
 // init Movie Model from Business Logic
 $movie = new Movie();

@@ -8,7 +8,7 @@
 				<input type="text" name="username" id="username" />
 			</td>
 			<td>
-				
+
 			</td>
 		</tr>
 		<tr>
@@ -20,6 +20,9 @@
 			</td>
 			<td>
 				<input type="submit" name="submit" id="submit" value="login" />
+			</td>
+			<td>
+				<a href="registration.php">register</a>
 			</td>
 		</tr>
 	</table>

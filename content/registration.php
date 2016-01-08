@@ -1,74 +1,45 @@
-<?php
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			MovieDB | zur Verfügung stellen.
+		</title>
+		<meta charset="utf-8" />
+		<link type="text/css" rel="stylesheet" href="../css/reset.css" />
+		<!-- Smartphones: 320px bis 480px Tablets: 768px bis 1024px Computer-Desktop: 1024px+  -->
+		<link type="text/css" rel="stylesheet"  href="../css/style.css">
+		<link type="text/css" rel="stylesheet" href="../css/desktop.css" media="screen and (min-width: 1024px)" />
+		<link type="text/css" rel="stylesheet" href="../css/tablet.css" media="screen and (max-width: 1023px) and (min-width: 481px)" />
+		<link type="text/css" rel="stylesheet" href="../css/smartphone.css" media="screen and (max-width: 480px)" />
+	</head>
+	<body>
+		<div id="header">
+			<div id="topcontent">
+				<a href="index.php" >
+					<div id="logo">
+						<h1>
+							<?php include 'logo.txt'; ?>
+						</h1>
+					</div>
+				</a>
+				<div id="nav">
+					<?php include 'nav.php'; ?>
+				</div>
+				<div id="hamburger">
+					<a href="mobilenav.php">
+						<img src="../img/hamburger.png" alt="Navigation" />
+					</a>
+				</div>
+				<div id="login">
+					<h1>
+						<?php include 'login.php'; ?>
 
-include "../model/person.php";
-
-$person = new Person();
-if(isset($_POST["r_username"]) && $_POST["r_password"] && $_POST["r_password2"]){
-	if($_POST["r_password"] != $_POST["r_password2"]){
-		die;
-	}
-	$person->createPerson($_POST["r_firstname"], $_POST["r_lastname"], $_POST["r_tel"], $_POST["r_email"]);
-}
-
- ?>
-
- <form method="post" >
-   <h1>Registration:</h1>
-   <table id="r_username">
-   		<tr>
-   			<td>
-   				Firstname:
-   			</td>
-   			<td>
-   				<input type="text" name="r_firstname" placeholder="Firstname" />
-   			</td>
-   		</tr>
-			<tr>
-   			<td>
-   				Lastname:
-   			</td>
-   			<td>
-   				<input type="text" name="r_lastname" placeholder="Lastname" />
-   			</td>
-   		</tr>
-			<tr>
-   			<td>
-   				Tel:
-   			</td>
-   			<td>
-   				<input type="text" name="r_tel" placeholder="TelNr" />
-   			</td>
-   		</tr>
-			<tr>
-   			<td>
-   				eMail:
-   			</td>
-   			<td>
-   				<input type="text" name="r_email" placeholder="eMail" />
-   			</td>
-   		</tr>
-   		<tr>
-   			<td>
-   				Password:
-   			</td>
-   			<td>
-   				<input type="password" name="r_password" placeholder="password" />
-   			</td>
-   		</tr>
-   		<tr>
-   			<td>
-   				Password2:
-   			</td>
-   			<td>
-   				<input type="password" name="r_password2" placeholder="password" />
-   			</td>
-   		</tr>
-   		<tr>
-   			<td>
-   			</td>
-   			<td>
-   				<input type="submit" value="Submit"/>
-   			</td>
-   		</tr>
-   </table>
- </form>
+					</h1>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<?php include '../registration.php'; ?>
+		</div>
+	</body>
+</html>

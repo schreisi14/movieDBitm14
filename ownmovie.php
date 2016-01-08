@@ -1,7 +1,8 @@
 <?php
 // we now in presentation layer
 // we will include business layer to load business logic
-include("model/owner.php");
+
+require 'model/owner.php';
 
 // init Movie Model from Business Logic
 $ownmovie = new OwnFilmDAO();
@@ -13,7 +14,7 @@ if(isset($_POST["firstname"]) && $_POST["lastname"]){
 
 // now load all existing Owner and thier films with mediums
 $data = $ownmovie->getAllOwnfilms();
-
+echo "test";
 // prepare HTML Table
 function getHTMLTable($tabledata) {
   $html = '<br />';
@@ -36,7 +37,6 @@ function getHTMLTable($tabledata) {
   }
 
   $html .= '</table>';
-
   return $html;
 }
 

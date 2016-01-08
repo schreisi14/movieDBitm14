@@ -1,8 +1,9 @@
 <?php
 // Business Layer
-namespace mdb;
+//namespace mdb;
 
-include '../dao/ownfilmdao.php';
+require '../dao/ownfilmdao.php';
+
 //Owner Model
 class Owner{
 	private $ownfilmDAO = null;
