@@ -15,6 +15,7 @@
 - Kontakt -> show requests?
 - provide a better UI
 - CRUD -> movie,requests? ...
+- Update CSS? -> log in removed
 - Implement create owners
 - Implement .
 - Implement ..

@@ -12,35 +12,6 @@ if(isset($_POST["title"]) && $_POST["email"]){
 	$movie->createMovie($_POST["title"],$_POST["year"],$_POST["language"],$_POST["email"]);
 }
 
-// now load all Movies
-$data = $movie->getAllMovies();
-
-// prepare HTML Table
-function getHTMLTable($tabledata) {
-  $html = '<br />';
-  $html .= '<h1>Liste der bereits erstellten Filme:</h1>';
-  $html .= '<table id="moviestable">';
-  $html .= '<thead><tr>';
-  $html .= '<th>Filmtitel</th>';
-  $html .= '<th>Jahr</th>';
-  $html .= '<th>Sprache</th>';
-	$html .= '<th>Email</th>';
-  $html .= '</tr></thead>';
-
-  foreach($tabledata as $movie) {
-    $html .= '<tbody><tr>';
-    $html .= '<td>' . $movie['title'] . '</td>';
-		$html .= '<td>' . $movie['year'] . '</td>';
-		$html .= '<td>' . $movie['language'] . '</td>';
-		$html .= '<td>' . $movie['email'] . '</td>';
-    $html .= '</tr></tbody>';
-  }
-
-  $html .= '</table>';
-
-  return $html;
-}
-
 // now we can clearly output the requested data
 ?>
 
@@ -89,5 +60,3 @@ function getHTMLTable($tabledata) {
    		</tr>
    </table>
  </form>
-
- <?php echo getHTMLTable($data); ?><br />

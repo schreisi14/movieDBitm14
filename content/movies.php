@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>
-			MovieDB | Film eintragen
+			MovieDB | Filme
 		</title>
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../css/reset.css" />
@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<div id="content">
-			<?php include '../createmovie.php'; ?>
+			<?php include '../movies.php'; ?>
 		</div>
 	</body>
 </html>
