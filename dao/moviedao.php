@@ -21,9 +21,9 @@ class MovieDAO {
 	/*
 	 * Create a new Movie with name
 	 */
-	public function create($moviename, $year, $language, $email) {
-		$stmt = $this->connection->prepare( "INSERT INTO movie (title, year, language, email) VALUES (?,?,?,?);");
-		$stmt->bind_param( 'siss', $moviename, $year, $language, $email);
+	public function create($moviename, $year, $language, $medium, $email) {
+		$stmt = $this->connection->prepare( "INSERT INTO movie (name, year, language, medium, email) VALUES (?,?,?,?,?);");
+		$stmt->bind_param( 'sisss', $moviename, $year, $language, $medium, $email);
 		if ($stmt->execute()) {
 			echo "Insert complete";
 			return 1;

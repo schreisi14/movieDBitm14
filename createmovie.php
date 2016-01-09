@@ -8,8 +8,8 @@ include 'model/movie.php' ;
 $movie = new Movie();
 
 // insert new Movie if post data exists
-if(isset($_POST["title"]) && $_POST["email"]){
-	$movie->createMovie($_POST["title"],$_POST["year"],$_POST["language"],$_POST["email"]);
+if(isset($_POST["name"]) && $_POST["email"]){
+	$movie->createMovie($_POST["name"],$_POST["year"],$_POST["language"],$_POST["medium"],$_POST["email"]);
 }
 
 // now we can clearly output the requested data
@@ -24,7 +24,7 @@ if(isset($_POST["title"]) && $_POST["email"]){
    				Name:
    			</td>
    			<td>
-   				<input type="text" name="title" placeholder="Mein Film Titel" />
+   				<input type="text" name="name" placeholder="Mein Film Titel" />
    			</td>
    		</tr>
    		<tr>
@@ -43,12 +43,23 @@ if(isset($_POST["title"]) && $_POST["email"]){
    				<input type="text" name="language" placeholder="de" />
    			</td>
    		</tr>
+         <tr>
+            <td>
+               Medium:
+            </td>
+            <td>
+               <select name="medium"> <!-- TODO: Get mediums from DB -->
+                  <option>DVD</option>
+                  <option>Blu-ray</option>
+               </select>
+            </td>
+         </tr>
 			<tr>
    			<td>
-   				Email:
+   				E-Mail:
    			</td>
    			<td>
-   				<input type="text" name="email" placeholder="Email" />
+   				<input type="email" name="email" placeholder="e@mail.tld" />
    			</td>
    		</tr>
    		<tr>
