@@ -19,7 +19,7 @@ $data = $contact->getAllRequests();
 function getHTMLTable($tabledata) {
   $html = '<br />';
   $html .= '<h1>Liste der bereits erstellten Anfragen:</h1>';
-  $html .= '<table id="contacttable">';
+  $html .= '<table id="moviestable">';
   $html .= '<thead><tr>';
   $html .= '<th>Email</th>';
   $html .= '<th>Subject</th>';
@@ -51,7 +51,7 @@ function getHTMLTable($tabledata) {
    				Email:
    			</td>
    			<td>
-   				<input type="text" name="email" placeholder="Email" />
+   				<input type="email" name="email" placeholder="E-Mail" />
    			</td>
    		</tr>
    		<tr>
@@ -63,19 +63,18 @@ function getHTMLTable($tabledata) {
    			</td>
    		</tr>
    		<tr>
-   			<td>
+   			<td colspan="2">
    				Text:
    			</td>
-   			<td>
-   				<input type="text" name="text" placeholder="Text" />
+        <tr>
+   			<td colspan="2">
+          <textarea name="text" cols="30" rows="15" placeholder="Text"></textarea>
    			</td>
    		</tr>
    		<tr>
-   			<td>
-   			</td>
-   			<td>
-   				<input type="submit" value="Submit"/>
-   			</td>
+   			<td colspan="2">
+          <input type="submit" value="Submit" />
+   		</td>
    		</tr>
    </table>
  </form>

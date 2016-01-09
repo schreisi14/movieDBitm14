@@ -22,7 +22,7 @@ class RequestDAO {
 	 * Create a new Request
 	 */
 	public function create($email, $subject, $text) {
-		$stmt = $this->connection->prepare( "INSERT INTO request (email, subject, text) VALUES (?,?,?);");
+		$stmt = $this->connection->prepare( "INSERT INTO contact (email, subject, text) VALUES (?,?,?);");
 		$stmt->bind_param( 'sss', $email, $subject, $text);
 		if ($stmt->execute()) {
 			echo "Insert complete";
@@ -37,7 +37,7 @@ class RequestDAO {
 	 * Get all Requests in the Database
 	 */
 	public function readAll() {
-		$select = "SELECT * FROM request;";
+		$select = "SELECT * FROM contact;";
 		if ($this->connection == null) {
 			echo "Connection not initialized!";
 		} else if ($result = mysqli_query ( $this->connection, $select )) {

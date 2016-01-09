@@ -30,12 +30,6 @@
 						<img src="../img/hamburger.png" alt="Navigation" />
 					</a>
 				</div>
-				<div id="login">
-					<h1>
-						<?php include 'login.php'; ?>
-
-					</h1>
-				</div>
 			</div>
 		</div>
 		<div id="content">
