@@ -18,7 +18,7 @@ $data = $contact->getAllContactForms();
 // prepare HTML Table
 function getHTMLTable($tabledata) {
   $html = '<br />';
-  $html .= '<h1>Liste der bereits erstellten Contact:</h1>';
+  $html .= '<h1>Liste der bereits erstellten Anfragen:</h1>';
   $html .= '<table id="contacttable">';
   $html .= '<thead><tr>';
   $html .= '<th>Email</th>';
@@ -44,7 +44,7 @@ function getHTMLTable($tabledata) {
 
 
  <form method="post" >
-   <h1>Neuen Contact erstellen:</h1>
+   <h1>Neue Anfrage erstellen:</h1>
    <table id="newcontact">
    		<tr>
    			<td>

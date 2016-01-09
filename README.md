@@ -10,10 +10,11 @@
 
 
 # TODO
-- Dropdown Menu -> create Movie
+- Dropdown Menu -> Film
 - DB -> fk_medium in Movie
+- Kontakt -> show requests?
 - provide a better UI
-- CRUD ? ... 
+- CRUD -> movie,requests? ...
 - Implement create owners
 - Implement .
 - Implement ..
