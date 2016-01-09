@@ -21,9 +21,6 @@
 			<td>
 				<input type="submit" name="submit" id="submit" value="login" />
 			</td>
-			<td>
-				<a href="registration.php">register</a>
-			</td>
 		</tr>
 	</table>
 </form>

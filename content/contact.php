@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>
-			MovieDB | Film ausborgen.
+			MovieDB | zur Verfügung stellen.
 		</title>
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../css/reset.css" />
@@ -33,41 +33,13 @@
 				<div id="login">
 					<h1>
 						<?php include 'login.php'; ?>
+
 					</h1>
 				</div>
 			</div>
 		</div>
 		<div id="content">
-			<?php include("../business.php");
-				// init Movie Model from Business Logic
-				$movie = new Movie();
-				// now load all Movies
-				$data = $movie->getAllMovies();
-
-				// prepare HTML Table
-				function getHTMLTable($tabledata) {
-				  $html = '<h1>Filme ausborgen:</h1>';
-				  $html .= '<table id="moviestable">';
-				  $html .= '<thead><tr>';
-				  $html .= '<th>Filmtitel</th>';
-				  $html .= '<th>Jahr</th>';
-				  $html .= '<th>Sprache</th>';
-				  $html .= '</tr></thead>';
-
-				  foreach($tabledata as $movie) {
-				    $html .= '<tbody><tr>';
-				    $html .= '<td>' . $movie['name'] . '</td>';
-						$html .= '<td>' . $movie['year'] . '</td>';
-						$html .= '<td>' . $movie['language'] . '</td>';
-				    $html .= '</tr></tbody>';
-				  }
-
-				  $html .= '</table>';
-
-				  return $html;
-				}
-				echo getHTMLTable($data);
-			?>
+			<?php include '../newcontact.php'; ?>
 		</div>
 	</body>
 </html>

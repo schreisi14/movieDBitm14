@@ -41,7 +41,7 @@
 			<h1>
 				MovieDB
 			</h1>
-			<?php 
+			<?php
 				$handle = fopen ("../README.md", "r");
 				while (!feof($handle)) {
     				$buffer = fgets($handle);

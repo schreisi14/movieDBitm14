@@ -1,13 +1,11 @@
 <?php
-
-//TODO customize to loged in user ...
 // include database connection only once,
 // it could be possible that the connection will be loaded at another DAO
 include_once '../db_connection.php';
-
 //####################################################################################################
-//Dabase Layer for Owner
-class OwnFilmDAO {
+// Database Layer for Contact
+
+class contactDAO {
 	private $connection = null;
 
 	// Initializing the DB-Connection for the further CRUD-Operations
@@ -21,13 +19,25 @@ class OwnFilmDAO {
 	}
 
 	/*
-	 * Get all Persons in the Database
+	 * Create a new Contact with name
+	 */
+	public function create($email, $subject, $text) {
+		$stmt = $this->connection->prepare( "INSERT INTO contact (email, subject, text) VALUES (?,?,?);");
+		$stmt->bind_param( 'sss', $email, $subject, $text);
+		if ($stmt->execute()) {
+			echo "Insert complete";
+			return 1;
+		} else {
+			echo "Contact-Create-ERROR: " . $insert . "<br>" . mysqli_error ( $this->connection );
+			return - 1;
+		}
+	}
+
+	/*
+	 * Get all Contacts in the Database
 	 */
 	public function readAll() {
-		$select = "SELECT person.firstname, person.lastname, movie.title, movie.year, movie.language, medium.name FROM movieowner
-INNER JOIN person ON person.id = movieowner.id_person
-INNER JOIN movie ON movie.id = movieowner.id_movie
-INNER JOIN medium ON medium.id = movieowner.id_medium;";
+		$select = "SELECT * FROM contact;";
 		if ($this->connection == null) {
 			echo "Connection not initialized!";
 		} else if ($result = mysqli_query ( $this->connection, $select )) {
@@ -44,24 +54,4 @@ INNER JOIN medium ON medium.id = movieowner.id_medium;";
 			echo "Resultset leer/nicht definiert!";
 		}
 	}
-
-	/*
-	 * Get all films of a movieowner by firstname
-	 */
-	/*public function readByPersonId($firstname) {
-		$stmt = $this->connection->prepare( "SELECT * FROM movieowner WHERE id_person = SELECT id FROM person WHERE firstname = ?;" );
-		$stmt->bind_param( 's', $firstname );
-
-		if ($stmt->execute ()) {
-			$stmt->bind_result( $firstname);
-			while ( $stmt->fetch() ) {
-				$row['firstname'] = $firstname;
-			}
-			return $row;
-		} else {
-			echo "0 results";
-			return - 1;
-		}
-	}
-*/
 }

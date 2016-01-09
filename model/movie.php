@@ -14,8 +14,8 @@ class Movie {
 		$data = $this->movieDAO->readAll();
 		return $data;
 	}
-	public function createMovie($moviename, $year, $language) {
-		$data = $this->movieDAO->create($moviename, $year, $language);
+	public function createMovie($moviename, $year, $language, $email) {
+		$data = $this->movieDAO->create($moviename, $year, $language, $email);
 		return $data;
 	}
 }

@@ -10,8 +10,9 @@
 
 
 # TODO
-- create a Logik between movie - medium - owner - person
-- provide a better UI for inserting
+- Dropdown Menu -> create Movie
+- DB -> fk_medium in Movie
+- provide a better UI
 - Implement create owners
 - Implement .
 - Implement ..

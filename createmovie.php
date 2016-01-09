@@ -8,8 +8,8 @@ include 'model/movie.php' ;
 $movie = new Movie();
 
 // insert new Movie if post data exists
-if(isset($_POST["moviename"]) && $_POST["moviename"]){
-	$movie->createMovie($_POST["moviename"],$_POST["year"],$_POST["language"]);
+if(isset($_POST["title"]) && $_POST["email"]){
+	$movie->createMovie($_POST["title"],$_POST["year"],$_POST["language"],$_POST["email"]);
 }
 
 // now load all Movies
@@ -24,6 +24,7 @@ function getHTMLTable($tabledata) {
   $html .= '<th>Filmtitel</th>';
   $html .= '<th>Jahr</th>';
   $html .= '<th>Sprache</th>';
+	$html .= '<th>Email</th>';
   $html .= '</tr></thead>';
 
   foreach($tabledata as $movie) {
@@ -31,6 +32,7 @@ function getHTMLTable($tabledata) {
     $html .= '<td>' . $movie['title'] . '</td>';
 		$html .= '<td>' . $movie['year'] . '</td>';
 		$html .= '<td>' . $movie['language'] . '</td>';
+		$html .= '<td>' . $movie['email'] . '</td>';
     $html .= '</tr></tbody>';
   }
 
@@ -51,7 +53,7 @@ function getHTMLTable($tabledata) {
    				Name:
    			</td>
    			<td>
-   				<input type="text" name="moviename" placeholder="Mein Film Titel" />
+   				<input type="text" name="title" placeholder="Mein Film Titel" />
    			</td>
    		</tr>
    		<tr>
@@ -68,6 +70,14 @@ function getHTMLTable($tabledata) {
    			</td>
    			<td>
    				<input type="text" name="language" placeholder="de" />
+   			</td>
+   		</tr>
+			<tr>
+   			<td>
+   				Email:
+   			</td>
+   			<td>
+   				<input type="text" name="email" placeholder="Email" />
    			</td>
    		</tr>
    		<tr>

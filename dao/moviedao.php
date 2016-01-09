@@ -21,9 +21,9 @@ class MovieDAO {
 	/*
 	 * Create a new Movie with name
 	 */
-	public function create($moviename, $year, $language) {
-		$stmt = $this->connection->prepare( "INSERT INTO movie (title, year, language) VALUES (?,?,?);");
-		$stmt->bind_param( 'sis', $moviename, $year, $language);
+	public function create($moviename, $year, $language, $email) {
+		$stmt = $this->connection->prepare( "INSERT INTO movie (title, year, language, email) VALUES (?,?,?,?);");
+		$stmt->bind_param( 'siss', $moviename, $year, $language, $email);
 		if ($stmt->execute()) {
 			echo "Insert complete";
 			return 1;
@@ -79,7 +79,7 @@ class MovieDAO {
 	 * TODO!
 	 */
 	public function update($moviename, $moviename_new) {
-		$stmt = $this->connection->prepare ( "UPDATE movie SET title=? WHERE name = ?;" );
+		$stmt = $this->connection->prepare ( "UPDATE movie SET title=? WHERE title = ?;" );
 		$stmt->bind_param ( 'ss', $moviename_new, $moviename);
 
 		if ($stmt->execute ()) {

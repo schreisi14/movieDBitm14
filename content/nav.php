@@ -1,18 +1,12 @@
 <ul>
-	<a href="borrow.php">
+	<a href="contact.php">
 		<li>
-			ausborgen
+			contact
 		</li>
 	</a>
 	<a href="create.php">
 		<li>
 			zur Verfügung stellen
-		
-		</li>
-	</a>
-	<a href="ownmovies.php">
-		<li>
-			eigene Filme
 		</li>
 	</a>
 		<li>
