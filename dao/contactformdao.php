@@ -5,7 +5,7 @@ include_once '../db_connection.php';
 //####################################################################################################
 // Database Layer for Contact
 
-class contactDAO {
+class contactFormDAO {
 	private $connection = null;
 
 	// Initializing the DB-Connection for the further CRUD-Operations
