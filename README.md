@@ -13,6 +13,7 @@
 - Dropdown Menu -> create Movie
 - DB -> fk_medium in Movie
 - provide a better UI
+- CRUD ? ... 
 - Implement create owners
 - Implement .
 - Implement ..

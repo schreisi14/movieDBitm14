@@ -1,12 +1,12 @@
 <ul>
 	<a href="contact.php">
 		<li>
-			contact
+			Kontakt
 		</li>
 	</a>
 	<a href="create.php">
 		<li>
-			zur Verfügung stellen
+			Filme
 		</li>
 	</a>
 		<li>
