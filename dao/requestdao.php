@@ -19,7 +19,7 @@ class RequestDAO {
 	}
 
 	/*
-	 * Create a new Contact with name
+	 * Create a new Request
 	 */
 	public function create($email, $subject, $text) {
 		$stmt = $this->connection->prepare( "INSERT INTO request (email, subject, text) VALUES (?,?,?);");
@@ -34,7 +34,7 @@ class RequestDAO {
 	}
 
 	/*
-	 * Get all Contacts in the Database
+	 * Get all Requests in the Database
 	 */
 	public function readAll() {
 		$select = "SELECT * FROM request;";
