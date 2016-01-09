@@ -19,15 +19,17 @@ function getHTMLTable($tabledata) {
   $html .= '<th>Filmtitel</th>';
   $html .= '<th>Jahr</th>';
   $html .= '<th>Sprache</th>';
-	$html .= '<th>Email</th>';
+  $html .= '<th>Medium</th>';
+	$html .= '<th>E-Mail</th>';
   $html .= '</tr></thead>';
 
   foreach($tabledata as $movie) {
     $html .= '<tbody><tr>';
-    $html .= '<td>' . $movie['title'] . '</td>';
+    $html .= '<td>' . $movie['name'] . '</td>';
 		$html .= '<td>' . $movie['year'] . '</td>';
 		$html .= '<td>' . $movie['language'] . '</td>';
-		$html .= '<td>' . $movie['email'] . '</td>';
+    $html .= '<td>' . $movie['medium'] . '</td>';
+		$html .= '<td><a href="mailto:' . $movie['email'] .'">'.$movie['email'] .' </a></td>';
     $html .= '</tr></tbody>';
   }
 

@@ -1,18 +1,45 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.10
+-- version 3.4.9
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:8889
--- Erstellungszeit: 06. Nov 2015 um 15:29
--- Server-Version: 5.5.42
--- PHP-Version: 5.6.10
+-- Host: localhost
+-- Erstellungszeit: 09. Jan 2016 um 16:40
+-- Server Version: 5.5.20
+-- PHP-Version: 5.3.9
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
--- Datenbank: `MovieDB`
+-- Datenbank: `moviedb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `contact`
+--
+
+CREATE TABLE IF NOT EXISTS `contact` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) NOT NULL,
+  `subject` text NOT NULL,
+  `text` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Daten für Tabelle `contact`
+--
+
+INSERT INTO `contact` (`id`, `email`, `subject`, `text`) VALUES
+(1, 'admin@moviedb.at', 'Test', 'Hallo, Test aus der Datenbank. Lg');
 
 -- --------------------------------------------------------
 
@@ -20,18 +47,19 @@ SET time_zone = "+00:00";
 -- Tabellenstruktur für Tabelle `medium`
 --
 
-CREATE TABLE `medium` (
-  `id` int(11) NOT NULL,
-  `name` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `medium` (
+  `name` varchar(20) NOT NULL,
+  PRIMARY KEY (`name`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `medium`
 --
 
-INSERT INTO `medium` (`id`, `name`) VALUES
-(1, 'Blu-ray'),
-(2, 'DVD');
+INSERT INTO `medium` (`name`) VALUES
+('Blu-ray'),
+('DVD');
 
 -- --------------------------------------------------------
 
@@ -39,77 +67,35 @@ INSERT INTO `medium` (`id`, `name`) VALUES
 -- Tabellenstruktur für Tabelle `movie`
 --
 
-CREATE TABLE `movie` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `movie` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `year` year(4) NOT NULL,
-  `language` varchar(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `movieowner`
---
-
-CREATE TABLE `movieowner` (
-  `id_person` int(11) NOT NULL,
-  `id_movie` int(11) NOT NULL,
-  `id_medium` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+  `language` varchar(2) NOT NULL,
+  `medium` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `medium` (`medium`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Tabellenstruktur für Tabelle `person`
+-- Daten für Tabelle `movie`
 --
 
-CREATE TABLE `person` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(60) NOT NULL,
-  `lastname` varchar(60) NOT NULL,
-  `telephon` varchar(60) NOT NULL,
-  `email` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `movie` (`id`, `name`, `year`, `language`, `medium`, `email`) VALUES
+(1, 'Star Wars Das Erwachen der Macht (Episode VII)', 2015, 'de', 'Blu-ray', 'admin@moviedb.at'),
+(2, 'Psycho', 1960, 'en', 'DVD', 'admin@moviedb.at');
 
 --
--- Indizes der exportierten Tabellen
+-- Constraints der exportierten Tabellen
 --
 
 --
--- Indizes für die Tabelle `medium`
---
-ALTER TABLE `medium`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indizes für die Tabelle `movie`
+-- Constraints der Tabelle `movie`
 --
 ALTER TABLE `movie`
-  ADD PRIMARY KEY (`id`);
+  ADD CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`medium`) REFERENCES `medium` (`name`);
 
---
--- Indizes für die Tabelle `person`
---
-ALTER TABLE `person`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT für exportierte Tabellen
---
-
---
--- AUTO_INCREMENT für Tabelle `medium`
---
-ALTER TABLE `medium`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT für Tabelle `movie`
---
-ALTER TABLE `movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT für Tabelle `person`
---
-ALTER TABLE `person`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
