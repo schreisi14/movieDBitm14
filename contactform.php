@@ -2,18 +2,18 @@
 
 // we now in presentation layer
 // we will include business layer to load business logic
-include 'model/contactform.php' ;
+include 'model/request.php' ;
 
 // init Contact Model from Business Logic
-$contact = new ContactForm();
+$contact = new Request();
 
 // insert new Contact if post data exists
 if(isset($_POST["email"]) && $_POST["text"]){
-	$contact->createContactForm($_POST["email"],$_POST["subject"],$_POST["text"]);
+	$contact->createRequest($_POST["email"],$_POST["subject"],$_POST["text"]);
 }
 
 // now load all Movies
-$data = $contact->getAllContactForms();
+$data = $contact->getAllRequests();
 
 // prepare HTML Table
 function getHTMLTable($tabledata) {

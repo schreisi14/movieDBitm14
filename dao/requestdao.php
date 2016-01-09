@@ -3,9 +3,9 @@
 // it could be possible that the connection will be loaded at another DAO
 include_once '../db_connection.php';
 //####################################################################################################
-// Database Layer for Contact
+// Database Layer for RequestDAO
 
-class contactFormDAO {
+class RequestDAO {
 	private $connection = null;
 
 	// Initializing the DB-Connection for the further CRUD-Operations
@@ -22,7 +22,7 @@ class contactFormDAO {
 	 * Create a new Contact with name
 	 */
 	public function create($email, $subject, $text) {
-		$stmt = $this->connection->prepare( "INSERT INTO contact (email, subject, text) VALUES (?,?,?);");
+		$stmt = $this->connection->prepare( "INSERT INTO request (email, subject, text) VALUES (?,?,?);");
 		$stmt->bind_param( 'sss', $email, $subject, $text);
 		if ($stmt->execute()) {
 			echo "Insert complete";
@@ -37,7 +37,7 @@ class contactFormDAO {
 	 * Get all Contacts in the Database
 	 */
 	public function readAll() {
-		$select = "SELECT * FROM contact;";
+		$select = "SELECT * FROM request;";
 		if ($this->connection == null) {
 			echo "Connection not initialized!";
 		} else if ($result = mysqli_query ( $this->connection, $select )) {
