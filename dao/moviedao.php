@@ -34,25 +34,6 @@ class MovieDAO {
 	}
 
 	/*
-	 * Get all informations of a Movies by its name
-	 */
-	public function read($moviename) {
-		$stmt = $this->connection->prepare( "SELECT * FROM movie WHERE title = ?;" );
-		$stmt->bind_param( 's', $moviename );
-
-		if ($stmt->execute ()) {
-			$stmt->bind_result( $moviename);
-			while ( $stmt->fetch() ) {
-				$row['name'] = $moviename;
-			}
-			return $row;
-		} else {
-			echo "0 results";
-			return - 1;
-		}
-	}
-
-	/*
 	 * Get all Movies in the Database
 	 */
 	public function readAll() {
@@ -74,20 +55,4 @@ class MovieDAO {
 		}
 	}
 
-	/*
-	 * Update the informations of a Movie, identified by its name.
-	 * TODO!
-	 */
-	public function update($moviename, $moviename_new) {
-		$stmt = $this->connection->prepare ( "UPDATE movie SET title=? WHERE title = ?;" );
-		$stmt->bind_param ( 'ss', $moviename_new, $moviename);
-
-		if ($stmt->execute ()) {
-			echo "Update complete";
-			return 1;
-		} else {
-			echo "Movie-Update-ERROR: " . $stmt . "<br>" . mysqli_error ( $this->connection );
-			return -1;
-		}
-	}
 }
