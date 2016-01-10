@@ -12,4 +12,5 @@
 # TODO
 - Contact -> show requests? -> Implement Backend for seeing and answering requests
 - CRUD -> movie,requests? ...
+- Testing?
 - Implement a filter/search for movies
