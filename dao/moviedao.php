@@ -19,7 +19,7 @@ class MovieDAO {
 	}
 
 	/*
-	 * Create a new Movie with name
+	 * Create a new Movie
 	 */
 	public function create($moviename, $year, $language, $medium, $email) {
 		$stmt = $this->connection->prepare( "INSERT INTO movie (name, year, language, medium, email) VALUES (?,?,?,?,?);");

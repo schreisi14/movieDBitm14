@@ -3,7 +3,7 @@
 // it could be possible that the connection will be loaded at another DAO
 include_once '../db_connection.php';
 //####################################################################################################
-// Database Layer for RequestDAO
+// Database Layer for Request
 
 class RequestDAO {
 	private $connection = null;
