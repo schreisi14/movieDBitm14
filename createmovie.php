@@ -2,15 +2,20 @@
 
 // we now in presentation layer
 // we will include business layer to load business logic
-include 'model/movie.php' ;
+include 'model/movie.php';
+include 'model/medium.php';
 
 // init Movie Model from Business Logic
 $movie = new Movie();
+$medium = new Medium();
 
 // insert new Movie if post data exists
 if(isset($_POST["name"]) && $_POST["email"]){
 	$movie->createMovie($_POST["name"],$_POST["year"],$_POST["language"],$_POST["medium"],$_POST["email"]);
 }
+
+// now load all Mediums
+$data = $medium->getAllMediums();
 
 // now we can clearly output the requested data
 ?>
@@ -48,9 +53,12 @@ if(isset($_POST["name"]) && $_POST["email"]){
                Medium:
             </td>
             <td>
-               <select name="medium"> <!-- TODO: Get mediums from DB -->
-                  <option>DVD</option>
-                  <option>Blu-ray</option>
+               <select name="medium">
+                  <?php 
+                  foreach ($data as $medium) {
+                     echo "<option>".$medium['name']."</option>";
+                  }
+                  ?>
                </select>
             </td>
          </tr>
