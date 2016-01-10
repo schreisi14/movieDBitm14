@@ -10,9 +10,6 @@
 
 
 # TODO
-- Kontakt -> show requests?
+- Contact -> show requests? -> Implement Backend for seeing and answering requests
 - CRUD -> movie,requests? ...
-- Update CSS? -> log in removed
 - Implement a filter/search for movies
-- Implement ..
-- Implement ...

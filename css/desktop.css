@@ -41,22 +41,6 @@ div#nav
 	top: 0px;
 	bottom: 0px;
 }
-div#login
-{
-	text-decoration: none;
-	font-size: 10pt;
-	position: relative;
-	float: left;
-	display: block;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: auto;
-	line-height: 30px;
-	font-style: oblique;
-	font-variant: inherit;
-	padding-right: 0px;
-}
 div#nav ul li
 {	
 	list-style: none;
@@ -65,7 +49,7 @@ div#nav ul li
 	margin-left: 20px;
 	color: #EEE;
 }
-div#nav ul li login
+div#nav ul li
 {
 	display: none;
 }
