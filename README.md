@@ -10,13 +10,9 @@
 
 
 # TODO
-- Dropdown Menu -> Film
-- DB -> fk_medium in Movie
 - Kontakt -> show requests?
-- provide a better UI
 - CRUD -> movie,requests? ...
 - Update CSS? -> log in removed
-- Implement create owners
-- Implement .
+- Implement a filter/search for movies
 - Implement ..
 - Implement ...
