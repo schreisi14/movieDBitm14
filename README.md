@@ -8,6 +8,9 @@
 * Stefan Reip
 * Helmuth Weithaler
 
+# Important Files
+- db_connection.php -> replace connection details
+- db/MovieDB.sql -> DB-Init Script with Demo-Data
 
 # TODO
 - Contact -> show requests? -> Implement Backend for seeing and answering requests
