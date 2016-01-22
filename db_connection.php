@@ -1,26 +1,18 @@
 <?php
 class DB{
 
-	/* Heli
+	/* Heli & Simon */
 	private $servername = "127.0.0.1:8889";
 	private $username = "root";
 	private $password = "root";
 	private $dbname = "movieDB";
 
 
-	/* Stefan*/
+	/* Stefan
 	private $servername = "127.0.0.1:3307";
 	private $username = "root";
 	private $password = "hbla";
-	private $dbname = "movieDB";
-	
-
-	/* Simon 
-	private $servername = "127.0.0.1:8889";
-	private $username = "root";
-	private $password = "root";
-	private $dbname = "movieDB";
-	*/
+	private $dbname = "movieDB"; */
 
 
 	public function __construct() {}
