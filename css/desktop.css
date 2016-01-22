@@ -42,7 +42,7 @@ div#nav
 	bottom: 0px;
 }
 div#nav ul li
-{	
+{
 	list-style: none;
 	float: left;
 	margin-right: 20px;
@@ -51,7 +51,7 @@ div#nav ul li
 }
 div#nav ul li
 {
-	display: none;
+	/*display: none;*/
 }
 div#hamburger
 {
